@@ -92,7 +92,7 @@ var check_and_set_availability = function(frm) {
 				{ fieldtype: 'Section Break'},
 				{ fieldtype: 'HTML', fieldname: 'available_slots'}
 			],
-			primary_action_label: __("Reservar"),
+			primary_action_label: __("Fijar Fecha"),
 			primary_action: function() {
 				frm.set_value('appointment_time', selected_slot);
 				frm.set_value('practitioner', d.get_value('practitioner'));

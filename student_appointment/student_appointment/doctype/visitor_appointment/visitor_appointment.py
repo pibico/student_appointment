@@ -53,7 +53,8 @@ class VisitorAppointment(Document):
 		self.appointment_datetime = "%s %s" % (self.appointment_date, self.appointment_time or "00:00:00")
 
 	def after_insert(self):
-		input_str = "https://school.pibico.es/Visitor%20Appointment/" + self.name
+		url_site =  frappe.utils.get_url()
+		input_str = url_site + "/Visitor%20Appointment/" + self.name
 		qr = qrcode.make(input_str)
 		temp = BytesIO()
 		qr.save(temp, "PNG")
