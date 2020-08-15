@@ -1,11 +1,4 @@
-## Student Appointment
-
-App based on Frappe Framework to book appointments on Education and in Spanish
-
-#### License
-MIT
-=======
-# student_appointment
+<<<<<<< HEAD
 App based on Frappe Framework to manage Appointment on School Centers or Services Business from Guests and in spanish language
 
 1. Installation
@@ -14,3 +7,6 @@ As a Frappe Application, you can install on your instance by, first pulling the 
 
 and secondly, installing in your site:
   $ bench --site [your-site-name] install-app student_appointment 
+=======
+App based on Frappe Framework to manage Appointment on School Centers or Services Business from Guests and in spanish language.
+>>>>>>> 6ca2fea2b4b2e15ef3c0e3104c03f67b78dec56a
