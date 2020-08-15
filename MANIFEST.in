@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include student_appointment *.css
+recursive-include student_appointment *.csv
+recursive-include student_appointment *.html
+recursive-include student_appointment *.ico
+recursive-include student_appointment *.js
+recursive-include student_appointment *.json
+recursive-include student_appointment *.md
+recursive-include student_appointment *.png
+recursive-include student_appointment *.py
+recursive-include student_appointment *.svg
+recursive-include student_appointment *.txt
+recursive-exclude student_appointment *.pyc

@@ -1,0 +1,220 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<!-- <h1>{{ title }}</h1> -->
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+    <a href="mentor_en" class="logo mr-auto"><img src="assets/Mentor/assets/img/logo.png" alt="" class="img-fluid"></a>
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="mentor_es">Inicio</a></li>
+        <li><a href="mentor_es#about">Nosotros</a></li>
+        <li><a href="mentor_es#popular-courses">Cursos</a></li>
+        <li><a href="mentor_es#contact">Contacto</a></li>
+		<li><a href="visitor-appointment">Citas</a></li>
+		
+        <li class="drop-down"><a>Idioma</a>
+          <ul>
+            <li><a href="mentor_en">English</a></li>
+            <li><a href="mentor_es">Espa&ntilde;ol</a></li>
+          </ul>
+        </li>
+        <li><a href="login">&Aacute;rea Privada</a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+  </div>
+</header><!-- End Header -->
+
+  <section id="visitor-appointment" style="margin-top: 45px;">
+    <div class="container" data-aos="fade-up">  
+      <div class="section-title">
+        <h2>Reserva</h2>
+        <p>Cita Previa</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 mt-5 mt-lg-0 align-items-stretch">
+          <div class="info" style="margin-top: 30px;">
+            <p id="visitor-appointment" class="alert alert-warning" style="display: none;">&nbsp;</p>
+            <form class="visitor-appointment-form">
+              <div class="form-group">
+                <label for="name">Email Solicitante Cita</label>
+                <input class="form-control" name="visitor" type="text" placeholder="Introduce tu correo electr&oacute;nico" />
+              </div>
+              <div class="form-group">
+                <label for="name">Nombre y Apellidos</label>
+                <input class="form-control" name="visitor_name" type="text" placeholder="Introduce tu Nombre Completo" />
+              </div>
+              <div class="form-group">
+                <label for="name">Tel&eacute;fono Contacto</label>
+                <input class="form-control" name="visitor_phone" type="text" placeholder="Introduce tu Tel&eacute;fono de Contacto" />
+              </div>
+			        <div class="form-group">
+                <label for="name">Tipo de Cita</label>
+                <select name="appointment_type" class="form-control">
+                  <option value="Pagos">Pagos</option>
+                  <option value="Consultas">Consultas</option>
+                </select>
+              </div>
+			        <div class="form-group">
+                <label for="name">Detalles</label>
+                <textarea rows=10 name="notes" class="form-control" placeholder="En caso de representar a alg&uacute;n/os alumno/s, por favor referirlos en el cuadro de Detalles"></textarea>
+              </div>
+              <div class="form-group text-center">
+                <button class="btn btn-primary btn-send g-recaptcha" data-callback="onSubmit">Comprueba Disponibilidad</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5 align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="icofont-google-map"></i>
+              <h4>Direcci&oacute;n:</h4>
+              <p>Avenida de La Costa, 35-6T, 33209-Gijon, Asturias<br>Spain ES</p>
+            </div>
+            <div class="email">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>proyectos@pibico.es</p>
+            </div>
+            <div class="phone">
+              <i class="icofont-phone"></i>
+              <h4>Ll&aacute;manos:</h4>
+              <p>+34 676 516 562 | + 34 680 756 089</p>
+            </div>
+			<br>
+            <iframe class="mb-4 mb-lg-0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-5.661802589893342%2C43.53670579678891%2C-5.657494962215424%2C43.53851213820066&amp;layer=mapnik&amp;marker=43.53760994645552%2C-5.659648776054382" style="border: none;" width="100%" height="300"></iframe><br><small><a href="https://www.openstreetmap.org/?mlat=43.53761&amp;mlon=-5.65965#map=19/43.53761/-5.65965&amp;layers=ND" target="_blank">Ver mapa m&aacute;s grande</a></small><br>
+            </iframe>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </section><!-- End Form -->
+
+</main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>Mentor</h3>
+          <p>
+            Avenida de la Costa,35-6T <br>
+            33201-Gij&oacute;n, Asturias<br>
+            Espa&ntilde;a <br><br>
+            <strong>Tel&eacute;fono de Paco:</strong> +34 676 516 562<br>
+			<strong>Tel&eacute;fono de Emilio:</strong> +34 680 756 089<br>
+            <strong>Email:</strong> clientes@pibico.es<br>
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Enlaces &Uacute;tiles</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="login">&Aacute;rea Privada</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#about">Nosotros</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#courses">Cursos</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terminos de Servicio</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Nuestros Productos</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.pibico.es/pibigestor" target="_blank">PibiGestor</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.pibico.es/pibidocs" target="_blank">PibiDocs</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="http://pibicontrol.pibico.es" target="_blank">PibiControl</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="http://pibinube.pibico.es" target="_blank">PibiNube</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+          <h4>Solicita una cita</h4>
+          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          <a class="button btn btn-info" href="visitor-appointment" target="_blank">Pide Cita</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-md-flex py-4">
+    <div class="mr-md-auto text-center text-md-left">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mentor</span></strong>. Todos los derechos reservados
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="https://twitter.com/pibico_sl" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a>
+      <a href="https://www.facebook.com/pibico.sociedad" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+      <a href="https://www.youtube.com/channel/UCZ_aFZHXy-fIXBoyLyHollg" class="youtube" target="_blank"><i class="bx bxl-youtube"></i></a>
+      <a href="https://www.linkedin.com/company/pibico" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="assets/Mentor/assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/Mentor/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/Mentor/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="assets/Mentor/assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/Mentor/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="assets/Mentor/assets/vendor/counterup/counterup.min.js"></script>
+<script src="assets/Mentor/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="assets/Mentor/assets/vendor/aos/aos.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/Mentor/assets/js/main.js"></script>
+
+<script>
+// Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
+// MIT License. See license.txt
+
+frappe.ready(function() {
+  AOS.init();
+  
+  $('.btn-send').off("click").on("click", function() {
+		// Code running
+    var visitor = $('[name="visitor"]').val();
+		var visitor_name = $('[name="visitor_name"]').val();
+    var visitor_phone = $('[name="visitor_phone"]').val();
+    var appointment_type = $('[name="appointment_type"]').val();
+    var notes = $('[name="notes"]').val();
+
+		if(!(visitor && visitor_name && visitor_phone )) {
+			frappe.msgprint(__("El correo, nombre y tel&eacute;fono son obligatorios para poder contactarte. Gracias!"));
+			return false;
+		}
+
+		if(!validate_email(visitor)) {
+			frappe.msgprint(__("Parece que no has escrito bien el correo. Introduce una direcci&oacute;n de correo v&aacute;lido para contactarte."));
+			$('[name="visitor"]').focus();
+			return false;
+		}
+
+		$("#visitor-appointment").toggle(false);
+  
+  // End of .btn-send function
+  });  
+// End of frappe.ready function    
+});
+
+var msgprint = function(txt) {
+	if(txt) $("#visitor-appointment").html(txt).toggle(true);
+};
+
+</script>
+
+{% endblock %}
+
+<!-- this is a sample default web page template -->
