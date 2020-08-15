@@ -86,12 +86,12 @@ def get_availability_data(date, practitioner):
 	practitioner_schedule = None
 
 	practitioner_obj = frappe.get_doc("School Practitioner", practitioner)
-	employee = None
+	practitioner_name = practitioner_obj.name
 
-	if employee:
+	if practitioner_name:
 		# Check if it is Holiday
-		if is_holiday(employee, date):
-			frappe.throw(_("{0} is a company holiday".format(date)))
+		if is_holiday(practitioner_name, date):
+			frappe.throw(_("{0} es un d&iacute;a no disponible".format(date)))
 
 	# get practitioners schedule
 	if practitioner_obj.practitioner_schedules:
@@ -147,6 +147,18 @@ def get_availability_data(date, practitioner):
 		"slot_details": slot_details
 	}
 
+def is_holiday(practitioner, date=None):
+	'''Returns True there is a holiday on the given date
+  :param practitioner: Practitioner selected for Appointment
+	:param date: Date to check. Will check for today if None'''
+
+	holiday_list = frappe.get_value("School Practitioner", practitioner, "school_holidays_list")
+	if not date:
+		date = today()
+
+	if holiday_list:
+		return frappe.get_all('School Holidays List', dict(name=holiday_list, holiday_date=date)) and True or False
+
 @frappe.whitelist(allow_guest=True)
 def get_duration(appointment_type):
   duration = frappe.get_value("Appointment Type", appointment_type, "default_duration")
@@ -166,7 +178,6 @@ def set_open_appointments():
 	frappe.db.sql(
 		"update `tabVisitor Appointment` set status='Open' where status = 'Scheduled'"
 		" and appointment_date = %s", today)
-
 
 @frappe.whitelist()
 def set_pending_appointments():

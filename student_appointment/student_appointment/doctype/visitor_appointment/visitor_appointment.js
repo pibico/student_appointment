@@ -164,7 +164,7 @@ var check_and_set_availability = function(frm) {
 	function show_slots(d, fd) {
 		if (d.get_value('appointment_date') && d.get_value('practitioner')){
 			fd.available_slots.html("");
-      let dToday = moment(d.get_value('appointment_date'), 'DD-MM-YY') - moment(frappe.datetime.get_today(), 'DD-MM-YY');
+      let dToday = moment(d.get_value('appointment_date'), 'YY-MM-DD') - moment(frappe.datetime.get_today(), 'YY-MM-DD');
       
       if (dToday < 0) {
         fd.available_slots.html("Elige una fecha v&aacute;lida no en el pasado.".bold());
