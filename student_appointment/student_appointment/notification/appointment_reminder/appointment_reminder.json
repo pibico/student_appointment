@@ -13,7 +13,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "<div class=\"container row\">\n  <table>\n    <tr>\n      <td style=\"width: 55%;\">\n        <h4>Se le recuerda su cita <b>#{{ doc.name }}</b></h4>\n        <p><b>Solicitante</b>: {{ doc.visitor_name }}<br>\n        <b>Motivo</b>: {{ doc.appointment_type }}<br>\n        <b>Maxima Reserva</b>: {{ doc.duration }} minutos<br>\n        <b>Fecha</b>: {{ doc.get_formatted('appointment_date') }}<br>\n        <b>Hora</b>: {{ doc.appointment_time }}<br>\n        <b>Departamento</b>: {{ doc.department }}<br>\n        <b>Persona a Visitar</b>: {{ doc.practitioner }}<br>\n        <b>Observaciones</b>: <i>{{ doc.notes }}</i><br>\n        <b>Imprimir Cita:</b>{{ frappe.get_url() }}/Visitor%20Appointment/{{ doc.name }}\n      </td>\n      <td style=\"width: 45%;\">\n        <img width=\"100%\" src=\"{{ doc.qr_code }}\" />\n      </td>\n    </tr>\n  </table>\n  <p>Le esperamos en el dia y hora indicados. Si desea modificar algo, todav\u00eda est\u00e1 a tiempo enviando correo electr&oacute;nico a <b>clientes@pibico.es</b> indicando en el asunto <b>\"Modificaci&oacute;n a Cita #{{ doc.name }}\"</b><br>Saludos</p>\n</div>",
- "modified": "2020-08-15 16:50:53.231408",
+ "modified": "2020-08-17 18:10:12.043760",
  "modified_by": "Administrator",
  "module": "Student Appointment",
  "name": "Appointment Reminder",
@@ -25,7 +25,7 @@
   }
  ],
  "sender": "Notifications",
- "sender_email": "clientes.pibico@gmail.com",
+ "sender_email": "pibidesk@gmail.com",
  "set_property_after_alert": "status",
- "subject": "Recordatorio de Cita {{ doc.name }}"
+ "subject": "Appointment {{ doc.name }} Reminder"
 }

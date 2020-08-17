@@ -1,21 +1,20 @@
 <div class="container row">
   <table>
-    <h3>Cita Agendada</h3>
     <tr>
       <td style="widht: 60%;">
-      <h4>Cita <b>#{{ doc.name }}</b> reservada</h4>
-      <p><b>Solicitante</b>: {{ doc.visitor_name }}<br>
-      <b>Motivo</b>: {{ doc.appointment_type }}<br>
-      <b>Maxima Reserva</b>: {{ doc.duration }} minutos<br>
-      <b>Fecha</b>: {{ doc.get_formatted('appointment_date') }}<br>
-      <b>Hora</b>: {{ doc.appointment_time }}<br>
-      <b>Departamento</b>: {{ doc.department }}<br>
-      <b>Persona a Visitar</b>: {{ doc.practitioner }}<br>
-      <b>Observaciones</b>: <i>{{ doc.notes }}</i><br>
-      <b>Para imprimir</b>: {{ frappe.get_url() }}/Visitor%20Appointment/{{ doc.name }}<br>
-      <b>Recordatorio Activado</b>: 
+      <h4>Appointment <b>#{{ doc.name }}</b> booked</h4>
+      <p><b>Visitor</b>: {{ doc.visitor_name }}<br>
+      <b>Purpose</b>: {{ doc.appointment_type }}<br>
+      <b>Maximum Time Slot</b>: {{ doc.duration }} minutes<br>
+      <b>Date</b>: {{ doc.get_formatted('appointment_date') }}<br>
+      <b>Time</b>: {{ doc.appointment_time }}<br>
+      <b>Department</b>: {{ doc.department }}<br>
+      <b>Practitioner</b>: {{ doc.practitioner }}<br>
+      <b>Remarks</b>: <i>{{ doc.notes }}</i><br>
+      <b>For Printing</b>: {{ frappe.get_url() }}/Visitor%20Appointment/{{ doc.name }}<br>
+      <b>Reminder Active</b>: 
         {% if doc.appointment_reminder %}
-          S&iacute;
+          Yes
         {% else %}
           No
         {% endif %}  
@@ -26,5 +25,5 @@
       </td>
     <tr>
   </table>
-<p>Le esperamos en el d&iacute;a y hora indicados. Si desea modificar algo envie correo electr&oacute;nico a <b>clientes@pibico.es</b> indicando en el asunto <b>"Modificaci&oacute;n a Cita #{{ doc.name }}"</b><br>Saludos</p>
+<p>We look forward to see you on date and time booked. If you want to modify something, please call us or send us an email to <b>ventas@pibico.es</b> showing in the subject <b>"Modification to Appointment #{{ doc.name }}"</b><br>Greetings</p>
 </div>

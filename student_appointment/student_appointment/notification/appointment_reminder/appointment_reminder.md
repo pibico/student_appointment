@@ -2,21 +2,21 @@
   <table>
     <tr>
       <td style="width: 55%;">
-        <h4>Se le recuerda su cita <b>#{{ doc.name }}</b></h4>
-        <p><b>Solicitante</b>: {{ doc.visitor_name }}<br>
-        <b>Motivo</b>: {{ doc.appointment_type }}<br>
-        <b>Maxima Reserva</b>: {{ doc.duration }} minutos<br>
-        <b>Fecha</b>: {{ doc.get_formatted('appointment_date') }}<br>
-        <b>Hora</b>: {{ doc.appointment_time }}<br>
-        <b>Departamento</b>: {{ doc.department }}<br>
-        <b>Persona a Visitar</b>: {{ doc.practitioner }}<br>
-        <b>Observaciones</b>: <i>{{ doc.notes }}</i><br>
-        <b>Imprimir Cita:</b>{{ frappe.get_url() }}/Visitor%20Appointment/{{ doc.name }}
+        <h4>PibiCo reminds you the appointment <b>#{{ doc.name }}</b></h4>
+        <p><b>Visitor</b>: {{ doc.visitor_name }}<br>
+        <b>Purpose</b>: {{ doc.appointment_type }}<br>
+        <b>Maximum Time Slot</b>: {{ doc.duration }} minutes<br>
+        <b>Date</b>: {{ doc.get_formatted('appointment_date') }}<br>
+        <b>Time</b>: {{ doc.appointment_time }}<br>
+        <b>Department</b>: {{ doc.department }}<br>
+        <b>Practitioner</b>: {{ doc.practitioner }}<br>
+        <b>Remarks</b>: <i>{{ doc.notes }}</i><br>
+        <b>For printing:</b>{{ frappe.get_url() }}/Visitor%20Appointment/{{ doc.name }}
       </td>
       <td style="width: 45%;">
         <img width="100%" src="{{ doc.qr_code }}" />
       </td>
     </tr>
   </table>
-  <p>Le esperamos en el dia y hora indicados. Si desea modificar algo, todavía está a tiempo enviando correo electr&oacute;nico a <b>clientes@pibico.es</b> indicando en el asunto <b>"Modificaci&oacute;n a Cita #{{ doc.name }}"</b><br>Saludos</p>
+  <p><p>We look forward to see you on date and time booked. If you want to modify something, please call us or send us an email to <b>ventas@pibico.es</b> showing in the subject <b>"Modification to Appointment #{{ doc.name }}"</b><br>Greetings</p></b><br>Saludos</p>
 </div>

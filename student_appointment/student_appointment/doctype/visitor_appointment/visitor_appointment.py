@@ -46,8 +46,8 @@ class VisitorAppointment(Document):
 		self.appointment_time, end_time.time(), self.appointment_time, end_time.time(), self.appointment_time))
 
 		if overlaps:
-			frappe.throw(_("""La cita se solapa con {0}.<br> {1} ha reservado cita con
-			{2} el {3} durante {4} minuto(s).""").format(overlaps[0][0], overlaps[0][1], overlaps[0][2], overlaps[0][3], overlaps[0][4]))
+			frappe.throw(_("""Appointment overlaps {0}.<br> {1} has booked appointment with
+			{2} on {3} along {4} minute(s).""").format(overlaps[0][0], overlaps[0][1], overlaps[0][2], overlaps[0][3], overlaps[0][4]))
 
 	def set_appointment_datetime(self):
 		self.appointment_datetime = "%s %s" % (self.appointment_date, self.appointment_time or "00:00:00")
@@ -99,7 +99,7 @@ def get_availability_data(date, practitioner):
 			if schedule.schedule:
 				practitioner_schedule = frappe.get_doc("Practitioner Schedule", schedule.schedule)
 			else:
-				frappe.throw(_("{0} no tiene Horarios Grabados. A&ntilde;&aacute;delo al maestro de Horarios".format(practitioner)))
+				frappe.throw(_("{0} has not any Schedule. Please add it to Schedule Master Data".format(practitioner)))
 
 			if practitioner_schedule:
 				available_slots = []
@@ -137,11 +137,11 @@ def get_availability_data(date, practitioner):
 						"available_slots":available_slots, 'appointments': appointments})
 
 	else:
-		frappe.throw(_("{0} no tiene Horarios Grabados. A&ntilde;&aacute;delo al maestro de Horarios".format(practitioner)))
+		frappe.throw(_("{0} has not any Schedule. Please add it to Schedule Master Data".format(practitioner)))
 
 	if not available_slots and not slot_details:
 		# TODO: return available slots in nearby dates
-		frappe.throw(_("Personal no disponible el {0}").format(weekday))
+		frappe.throw(_("Practitioner not available on {0}").format(weekday))
 
 	return {
 		"slot_details": slot_details

@@ -65,7 +65,7 @@ var check_and_set_availability = function(frm) {
 	var duration = null;
  
   if (!frm.doc.appointment_type) {
-    frappe.msgprint (__("Debes seleccionar primero el tipo de cita que deseas"));
+    frappe.msgprint (__("You must choose the Appointment Type First"));
     return(false);
   }
 
@@ -73,8 +73,8 @@ var check_and_set_availability = function(frm) {
 
 	function show_empty_state(practitioner, appointment_date) {
 		frappe.msgprint({
-			title: __('No Disponible'),
-			message: __("Personal {0} no disponible el {1}", [practitioner.bold(), appointment_date.bold()]),
+			title: __('Not Available'),
+			message: __("Practitioner {0} not available on {1}", [practitioner.bold(), appointment_date.bold()]),
 			indicator: 'red'
 		});
 	}
@@ -82,17 +82,17 @@ var check_and_set_availability = function(frm) {
 	function show_availability() {
 		let selected_practitioner = '';
 		var d = new frappe.ui.Dialog({
-			title: __("Buscar Disponibilidad"),
+			title: __("Check Availability"),
 			fields: [
-				{ fieldtype: 'Link', options: 'School Department', reqd:1, fieldname: 'department', label: 'Departamento'},
+				{ fieldtype: 'Link', options: 'School Department', reqd:1, fieldname: 'department', label: 'Department'},
 				{ fieldtype: 'Column Break'},
-				{ fieldtype: 'Link', options: 'School Practitioner', reqd:1, fieldname: 'practitioner', label: 'Personal'},
+				{ fieldtype: 'Link', options: 'School Practitioner', reqd:1, fieldname: 'practitioner', label: 'Practitioner'},
 				{ fieldtype: 'Column Break'},
-				{ fieldtype: 'Date', reqd:1, fieldname: 'appointment_date', label: 'Fecha'},
+				{ fieldtype: 'Date', reqd:1, fieldname: 'appointment_date', label: 'Date'},
 				{ fieldtype: 'Section Break'},
 				{ fieldtype: 'HTML', fieldname: 'available_slots'}
 			],
-			primary_action_label: __("Fijar Fecha"),
+			primary_action_label: __("Settle Time"),
 			primary_action: function() {
 				frm.set_value('appointment_time', selected_slot);
 				frm.set_value('practitioner', d.get_value('practitioner'));
@@ -167,7 +167,7 @@ var check_and_set_availability = function(frm) {
       let dToday = moment(d.get_value('appointment_date'), 'YY-MM-DD') - moment(frappe.datetime.get_today(), 'YY-MM-DD');
       
       if (dToday < 0) {
-        fd.available_slots.html("Elige una fecha v&aacute;lida no en el pasado.".bold());
+        fd.available_slots.html("Choose a valid date not in the past.".bold());
         d.set_value("appointment_time", null);
       } else {
 			 frappe.call({
@@ -237,7 +237,7 @@ var check_and_set_availability = function(frm) {
 						});
 
 					}else {
-						fd.available_slots.html("Elige una fecha v&aacute;lida.".bold())
+						fd.available_slots.html("Choose a valid date.".bold())
 						show_empty_state(d.get_value('practitioner'), d.get_value('appointment_date'));
 					}
 				},
@@ -246,14 +246,14 @@ var check_and_set_availability = function(frm) {
 			 });
       }
 		}else{
-			fd.available_slots.html("El departamento, la persona a visitar y el d&iacute;a son obligatorios".bold());
+			fd.available_slots.html("Department, Practitioner and Date are mandatory".bold());
 		}
 	}
 };
 
 var btn_update_status = function(frm, status){
 	var doc = frm.doc;
-	frappe.confirm(__('Seguro que quieres modificar la cita?'),
+	frappe.confirm(__('Are you sure to modify the appointment?'),
 		function() {
 			frappe.call({
 				method:
@@ -301,7 +301,7 @@ frappe.ui.form.on("Visitor Appointment", "appointment_type", function(frm) {
 
 frappe.ui.form.on("Visitor Appointment", "visitor", function(frm) {
   if (!validate_email(frm.doc.visitor)) {
-    frappe.msgprint(__("No has introducido un correo v&aacute;lido"));
+    frappe.msgprint(__("You have not entered a valid email"));
     frm.set_value("visitor",null);
   }
   
